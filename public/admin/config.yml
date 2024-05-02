@@ -19,7 +19,7 @@ collections:
           widget: "hidden",
           default: "question",
         }
-      - { label: "Question", name: "body", widget: "text" }
+      - { label: "Question", name: "question", widget: "text" }
       - {
           label: "Answer Choices",
           name: "choices",
