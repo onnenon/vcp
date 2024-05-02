@@ -19,7 +19,13 @@ collections:
           widget: "hidden",
           default: "question",
         }
-      - { label: "Question", name: "body", widget: "markdown" }
-      - { label: "Choices", name: "choices", widget: "list" }
+      - { label: "Question", name: "body", widget: "text" }
+      - {
+          label: "Answer Choices",
+          name: "choices",
+          widget: "list",
+          min: 4,
+          max: 4,
+        }
 media_folder: "src/assets/images" # Location where files will be stored in the repo
 public_folder: "src/assets/images" # The src attribute for uploaded media
