@@ -8,16 +8,6 @@ backend:
   squash_merges: true
 
 collections:
-  - name: Layouts
-    label: Layouts
-    description: "Edit the layout of the site"
-    files:
-      - file: "src/content/layouts/footer.json"
-        label: Footer
-        description: "Text included in the site footer"
-        name: footer
-        fields:
-          - { label: "Center Text", name: "center_text", widget: "string" }
   - name: Pages
     label: Pages
     description: "Edit the content of a specific page on the site"
@@ -29,6 +19,16 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+  - name: Layouts
+    label: Layouts
+    description: "Edit the layout of the site"
+    files:
+      - file: "src/content/layouts/footer.json"
+        label: Footer
+        description: "Text included in the site footer"
+        name: footer
+        fields:
+          - { label: "Center Text", name: "center_text", widget: "string" }
   - name: "multiple_choice_questions"
     label: "Multiple Choice Questions"
     label_singular: MC Question
