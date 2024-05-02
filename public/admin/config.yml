@@ -19,6 +19,7 @@ collections:
       - file: "src/content/pages/home.json"
         label: Home
         name: home
+        preview_path: "/"
         description: "Content for the site home page"
         fields:
           - { label: "Title", name: "title", widget: "string" }
@@ -29,6 +30,7 @@ collections:
     files:
       - file: "src/content/layouts/footer.json"
         label: Footer
+        preview_path: "/"
         description: "Text included in the site footer"
         name: footer
         fields:
@@ -41,6 +43,7 @@ collections:
     description: "Create and edit multiple choice questions"
     extension: json
     format: json
+    preview_path: "/questions"
     identifier_field: question
     fields:
       - { label: "Question", name: "question", widget: "text" }
@@ -55,6 +58,7 @@ collections:
     description: "Create and edit true/false questions"
     create: true
     extension: json
+    preview_path: "/questions"
     format: json
     identifier_field: question
     fields:
