@@ -2,6 +2,8 @@ backend:
   name: github
   repo: onnenon/vcp # Path to your GitHub repository
   branch: main
+  base_url: https://vcp.onnen.dev
+  auth_endpoint: /api/auth
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
