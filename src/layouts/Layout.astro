@@ -6,9 +6,10 @@ interface Props {
 
 const { title, isLandingPage } = Astro.props;
 
-const baseheaderStyle = "font-bold p-6 text-slate-100 hover:cursor-pointer";
+const baseheaderStyle =
+  "font-bold p-4 md:p-6 text-slate-100 hover:cursor-pointer";
 const headerStyle = isLandingPage
-  ? `${baseheaderStyle} text-7xl text-center`
+  ? `${baseheaderStyle} text-5xl md:text-7xl lg:text-center`
   : `${baseheaderStyle} text-4xl`;
 ---
 
