@@ -12,8 +12,8 @@ collections:
     label: Layouts
     files:
       - file: "src/content/layouts/footer.json"
-        label: Home
-        name: home
+        label: Footer
+        name: footer
         fields:
           - { label: "Center Text", name: "center_text", widget: "string" }
   - name: Pages
