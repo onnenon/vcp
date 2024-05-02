@@ -7,8 +7,8 @@ backend:
 
 collections:
   - name: "multiple_choice_questions"
-    label: "Survey Multiple Choice Questions"
-    label_singular: Survey Multi-choice Question
+    label: "Multiple Choice Questions"
+    label_singular: Question
     folder: "src/content/multi_choice_questions"
     create: true
     extension: json
@@ -21,8 +21,8 @@ collections:
       - { label: "Answer Choice C", name: "choice_c", widget: "string" }
       - { label: "Answer Choice D", name: "choice_d", widget: "string" }
   - name: "tf_choice_questions"
-    label: "Survey True/False Questions"
-    label_singular: "True/False Question"
+    label: "True/False Questions"
+    label_singular: Question
     folder: "src/content/tf_questions"
     create: true
     extension: json
