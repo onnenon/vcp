@@ -16,10 +16,10 @@ collections:
     identifier_field: question
     fields:
       - { label: "Question", name: "question", widget: "text" }
-      - { label: "Answer Choice A", name: "choice_a", widget: "text" }
-      - { label: "Answer Choice B", name: "choice_b", widget: "text" }
-      - { label: "Answer Choice C", name: "choice_c", widget: "text" }
-      - { label: "Answer Choice D", name: "choice_d", widget: "text" }
+      - { label: "Answer Choice A", name: "choice_a", widget: "string" }
+      - { label: "Answer Choice B", name: "choice_b", widget: "string" }
+      - { label: "Answer Choice C", name: "choice_c", widget: "string" }
+      - { label: "Answer Choice D", name: "choice_d", widget: "string" }
   - name: "tf_choice_questions"
     label: "Survey True/False Questions"
     label_singular: "True/False Question"
