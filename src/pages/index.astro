@@ -1,60 +1,25 @@
 ---
+import { marked } from "marked";
+
 import Layout from "../layouts/Layout.astro";
-import MCQuestionCard from "../components/MultiChoiceQuestionCard.astro";
-import TFQuestionCard from "../components/TrueFalseQuestionCard.astro";
+import content from "../content/pages/home.json";
 
-import { getCollection } from "astro:content";
-
-const mcQuestions = await getCollection("multiChoiceQuestions");
-const tfQuestions = await getCollection("tfQuestions");
-const linkCardClass =
-  "grid grid-rows-[repeat(auto-fit, minmax(24ch, 1fr))] gap-8 padding-0";
+const { title, body } = content;
 ---
 
-<Layout title="The Veteran Culture Project">
-  <main>
-    <h1 class="text-7xl font-bold text-center mb-8">
-      <span class="text-7xl font-bold">The Veteran Culture Project</span>
-    </h1>
-    <div class="p-4">
-      <ul role="list" class="link-card-grid">
-        {
-          mcQuestions.map((q) => (
-            <MCQuestionCard
-              question={q.data.question}
-              choices={[
-                q.data.choice_a,
-                q.data.choice_b,
-                q.data.choice_c,
-                q.data.choice_d,
-              ]}
-            />
-          ))
-        }
-      </ul>
-    </div>
-    <div class="p-4">
-      <ul role="list" class="link-card-grid">
-        {tfQuestions.map((q) => <TFQuestionCard question={q.data.question} />)}
-      </ul>
+<Layout title="The Veteran Culture Project" isLandingPage={true}>
+  <main class="flex flex-col container mx-auto text-slate-100 justify-center">
+    <div
+      class="container mx-auto prose prose-lg prose-invert px-4 py-6"
+      set:html={marked.parse(body)}
+    />
+    <div class="flex p-4 justify-center">
+      <a class="flex" href="/questions"
+        ><button
+          class="bg-gradient-to-r from-violet-700 to-purple-500 text-3xl font-bold rounded-lg p-6"
+          >Take the Survey</button
+        >
+      </a>
     </div>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
-  }
-</style>

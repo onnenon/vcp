@@ -1,6 +1,6 @@
 ---
 interface Props {
-  question: String;
+  question: string;
 }
 
 const { question } = Astro.props;
@@ -17,7 +17,7 @@ const labelClass =
         <div class="flex-1 p-0.5 flex">
           <input
             type="radio"
-            name="answer"
+            name={question}
             value={choice}
             class="peer/{choice} appearance-none flex"
             id={choice}

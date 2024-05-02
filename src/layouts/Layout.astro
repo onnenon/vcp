@@ -1,9 +1,15 @@
 ---
 interface Props {
   title: string;
+  isLandingPage: boolean;
 }
 
-const { title } = Astro.props;
+const { title, isLandingPage } = Astro.props;
+
+const baseheaderStyle = "font-bold p-6 text-slate-100 hover:cursor-pointer";
+const headerStyle = isLandingPage
+  ? `${baseheaderStyle} text-7xl text-center`
+  : `${baseheaderStyle} text-4xl`;
 ---
 
 <!doctype html>
@@ -15,7 +21,10 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="bg-zinc-900">
+  <body class="bg-zinc-900 container mx-auto">
+    <div>
+      <a href="/"><h1 class={headerStyle}>{title}</h1> </a>
+    </div>
     <slot />
   </body>
 </html>

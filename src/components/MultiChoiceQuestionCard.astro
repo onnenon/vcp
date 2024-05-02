@@ -16,7 +16,7 @@ const { question, choices } = Astro.props;
           <input
             type="radio"
             id={choice}
-            name="choice"
+            name={question}
             value={choice}
             class="peer/{choice} appearance-none flex"
           />
