@@ -1,0 +1,21 @@
+---
+interface Props {
+  question: String;
+  choices: Array<String>;
+}
+
+const { question, choices } = Astro.props;
+---
+
+<div class="">
+  <h2>{question}</h2>
+  <ul>
+    {
+      choices.map((choice) => (
+        <li class="link-card">
+          <p>{choice}</p>
+        </li>
+      ))
+    }
+  </ul>
+</div>
