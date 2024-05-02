@@ -1,9 +1,0 @@
-{
-  "question": "what is your favorite question?",
-  "choices": [
-    "bar",
-    "baz",
-    "foo",
-    "xyz"
-  ]
-}
