@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import QuestionCard from "../components/QuestionCard.astro";
 
 import { getCollection, getEntry } from "astro:content";
+import type { Code } from "astro:components";
 
 const questions = await getCollection("questions");
 ---
@@ -44,11 +45,7 @@ const questions = await getCollection("questions");
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
     <ul role="list" class="link-card-grid">
-      {
-        questions.map((q) => (
-          <QuestionCard choices={q.data.choices} question={q.data.question} />
-        ))
-      }
+      {questions.map((q) => <QuestionCard {...q.data} />)}
     </ul>
   </main>
 </Layout>

@@ -1,21 +1,21 @@
 ---
 interface Props {
   question: String;
-  choices: Array<String>;
+  choice_a: String;
+  choice_b: String;
+  choice_c: String;
+  choice_d: String;
 }
 
-const { question, choices } = Astro.props;
+const { question, choice_a, choice_b, choice_c, choice_d } = Astro.props;
 ---
 
 <div class="">
   <h2>{question}</h2>
-  <ul>
-    {
-      choices.map((choice) => (
-        <li class="link-card">
-          <p>{choice}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="flex-column">
+    <div>{choice_a}</div>
+    <div>{choice_b}</div>
+    <div>{choice_c}</div>
+    <div>{choice_d}</div>
+  </div>
 </div>
