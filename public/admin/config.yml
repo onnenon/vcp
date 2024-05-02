@@ -6,16 +6,20 @@ backend:
   auth_endpoint: /api/auth
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "src/content/blog" # The path to the folder where the documents are stored
+  - name: "questions" # Used in routes, e.g., /admin/collections/blog
+    label: "Questions" # Used in the UI
+    folder: "src/content/questions" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    extension: json
+    format: json
     fields: # The fields for each document, usually in frontmatter
-      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
-      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "question",
+        }
+      - { label: "Question", name: "body", widget: "markdown" }
+      - { label: "Choices", name: "choices", widget: "list" }
 media_folder: "src/assets/images" # Location where files will be stored in the repo
 public_folder: "src/assets/images" # The src attribute for uploaded media
