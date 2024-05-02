@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-const questionsCollection = defineCollection({
+const multipleChoiceQuestionsCollection = defineCollection({
   type: "data",
   schema: z.object({
     question: z.string(),
@@ -11,4 +11,13 @@ const questionsCollection = defineCollection({
   }),
 });
 
-export const collections = { questions: questionsCollection };
+const tfQuestionsCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    question: z.string(),
+  }),
+});
+export const collections = {
+  multiChoiceQuestions: multipleChoiceQuestionsCollection,
+  tfQuestions: tfQuestionsCollection,
+};

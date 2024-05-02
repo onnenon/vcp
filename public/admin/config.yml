@@ -6,19 +6,29 @@ backend:
   auth_endpoint: /api/auth
 
 collections:
-  - name: "survey_questions" # Used in routes, e.g., /admin/collections/blog
-    label: "Survey Questions" # Used in the UI
-    label_singular: Survey Question
-    folder: "src/content/questions" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
+  - name: "multiple_choice_questions"
+    label: "Survey Multiple Choice Questions"
+    label_singular: Survey Multi-choice Question
+    folder: "src/content/multi_choice_questions"
+    create: true
     extension: json
     format: json
     identifier_field: question
-    fields: # The fields for each document, usually in frontmatter
+    fields:
       - { label: "Question", name: "question", widget: "text" }
       - { label: "Answer Choice A", name: "choice_a", widget: "text" }
       - { label: "Answer Choice B", name: "choice_b", widget: "text" }
       - { label: "Answer Choice C", name: "choice_c", widget: "text" }
       - { label: "Answer Choice D", name: "choice_d", widget: "text" }
-media_folder: "src/assets/images" # Location where files will be stored in the repo
-public_folder: "src/assets/images" # The src attribute for uploaded media
+  - name: "tf_choice_questions"
+    label: "Survey True/False Questions"
+    label_singular: "True/False Question"
+    folder: "src/content/tf_questions"
+    create: true
+    extension: json
+    format: json
+    identifier_field: question
+    fields:
+      - { label: "Question", name: "question", widget: "text" }
+media_folder: "src/assets/images"
+public_folder: "src/assets/images"
