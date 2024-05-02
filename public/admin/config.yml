@@ -16,12 +16,9 @@ collections:
     identifier_field: question
     fields: # The fields for each document, usually in frontmatter
       - { label: "Question", name: "question", widget: "text" }
-      - {
-          label: "Answer Choices",
-          name: "choices",
-          widget: "list",
-          min: 4,
-          max: 4,
-        }
+      - { label: "Answer Choice A", name: "choice_a", widget: "text" }
+      - { label: "Answer Choice B", name: "choice_b", widget: "text" }
+      - { label: "Answer Choice C", name: "choice_c", widget: "text" }
+      - { label: "Answer Choice D", name: "choice_d", widget: "text" }
 media_folder: "src/assets/images" # Location where files will be stored in the repo
 public_folder: "src/assets/images" # The src attribute for uploaded media
