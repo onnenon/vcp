@@ -1,0 +1,9 @@
+{
+  "question": "What is your favorite color?",
+  "choices": [
+    "foo",
+    "bar",
+    "baz",
+    "xyz"
+  ]
+}
