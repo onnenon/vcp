@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://vcp.onnen.dev
   auth_endpoint: /api/auth
+  publish_mode: editorial_workflow
 
 collections:
   - name: "multiple_choice_questions"
