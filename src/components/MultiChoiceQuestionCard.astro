@@ -5,17 +5,25 @@ interface Props {
 }
 
 const { question, choices } = Astro.props;
-const selected = undefined;
 ---
 
-<div class="bg-slate-200 p-8 text-slate-900 rounded-3xl">
-  <h2 class="text-2xl font-bold">{question}</h2>
+<div class="bg-gray-300 p-8 text-zinc-900 rounded-2xl flex-1 flex-column">
+  <h2 class="text-3xl font-bold pb-4 flex-1">{question}</h2>
   <div class="flex-column">
     {
       choices.map((choice) => (
-        <div class="flex-row p-0.5">
-          <input type="radio" id={choice} name="choice" value={choice} />
-          <label for={choice} class="">
+        <div class="flex-1 p-0.5 flex">
+          <input
+            type="radio"
+            id={choice}
+            name="choice"
+            value={choice}
+            class="peer/{choice} appearance-none flex"
+          />
+          <label
+            for={choice}
+            class="flex-1 peer-checked/{choice}:bg-gradient-to-r from-violet-700 to-purple-500 peer-checked/{choice}:text-slate-100 cursor-pointer p-2 rounded-md"
+          >
             {choice}
           </label>
         </div>
