@@ -4,9 +4,27 @@ backend:
   branch: main
   base_url: https://vcp.onnen.dev
   auth_endpoint: /api/auth
-  publish_mode: editorial_workflow
+  # publish_mode: editorial_workflow
+  squash_merges: true
 
 collections:
+  - name: Layouts
+    label: Layouts
+    files:
+      - file: "src/content/layouts/footer.json"
+        label: Home
+        name: home
+        fields:
+          - { label: "Center Text", name: "center_text", widget: "string" }
+  - name: Pages
+    label: Pages
+    files:
+      - file: "src/content/pages/home.json"
+        label: Home
+        name: home
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
   - name: "multiple_choice_questions"
     label: "Multiple Choice Questions"
     label_singular: MC Question
