@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: https://vcp.onnen.dev
   auth_endpoint: /api/auth
-  # publish_mode: editorial_workflow
+  publish_mode: editorial_workflow
   squash_merges: true
 
 collections:
