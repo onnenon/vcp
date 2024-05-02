@@ -1,0 +1,10 @@
+{
+  "layout": "question",
+  "question": "foo",
+  "choices": [
+    "bar",
+    "baz",
+    "foo",
+    "xyz"
+  ]
+}
