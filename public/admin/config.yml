@@ -1,7 +1,7 @@
-local_backend: true
-
 backend:
-  name: git-gateway
+  name: github
+  repo: onnenon/vcp # Path to your GitHub repository
+  branch: main
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
