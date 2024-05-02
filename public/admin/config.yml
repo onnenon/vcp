@@ -9,7 +9,7 @@ collections:
   - name: "multiple_choice_questions"
     label: "Multiple Choice Questions"
     label_singular: Question
-    folder: "src/content/multi_choice_questions"
+    folder: "src/content/multiChoiceQuestions"
     create: true
     extension: json
     format: json
@@ -23,7 +23,7 @@ collections:
   - name: "tf_choice_questions"
     label: "True/False Questions"
     label_singular: Question
-    folder: "src/content/tf_questions"
+    folder: "src/content/tfQuestions"
     create: true
     extension: json
     format: json

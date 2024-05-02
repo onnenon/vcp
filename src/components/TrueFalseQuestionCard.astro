@@ -1,0 +1,15 @@
+---
+interface Props {
+  question: String;
+}
+
+const { question } = Astro.props;
+---
+
+<div class="">
+  <h2>{question}</h2>
+  <div class="flex-column">
+    <input type="radio" name="answer" value="True" />
+    <input type="radio" name="answer" value="False" />
+  </div>
+</div>
