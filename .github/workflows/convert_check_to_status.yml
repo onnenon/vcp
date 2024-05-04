@@ -34,7 +34,7 @@ jobs:
             };
 
             const createDeployStatus = async (ref, target_url) => {
-              await github.repos.createCommitStatus({
+              await github.rest.repos.createCommitStatus({
                 owner: "onnenon",
                 repo: "vcp",
                 sha: ref,
