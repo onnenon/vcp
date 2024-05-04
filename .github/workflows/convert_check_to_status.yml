@@ -22,14 +22,10 @@ jobs:
               return match?.[1];
             };
 
-            const getCloudflareCheckForRef = async (ref) => {
+            const getCloudflareCheckForRef = async (owner, repo, ref) => {
               const {
                 data: { check_runs: checks },
-              } = await github.rest.checks.listForRef({
-                owner: "${{ github.repository_owner }}",
-                repo: "${{ github.event.repository }}",
-                ref: ref,
-              });
+              } = await github.rest.checks.listForRef({ owner, repo, ref });
 
               return checks.find((check) => check.app.slug === "cloudflare-pages");
             };
@@ -47,8 +43,9 @@ jobs:
             };
 
             const main = async () => {
+              const [owner, repo] = "${{ github.repository }}".split("/");
               const ref = "${{ github.event.check_run.check_suite.head_sha }}";
-              const check = await getCloudflareCheckForRef(ref);
+              const check = await getCloudflareCheckForRef(owner, repo, ref);
               const previewUrl = getPreviewUrlForCheck(check);
 
               if (!previewUrl) {
