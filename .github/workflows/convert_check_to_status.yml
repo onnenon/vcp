@@ -12,9 +12,7 @@ jobs:
       statuses: write
     steps:
       - uses: actions/github-script@v7
-        id: my-script
         with:
-          retry-exempt-status-codes: 400,401
           script: |
             const getPreviewUrlForCheck = (check) => {
             const regex = /<strong>Preview URL:<\/strong><\/td><td>\n<a href='(.*?)'>/s;
@@ -30,14 +28,14 @@ jobs:
               return checks.find((check) => check.app.slug === "cloudflare-pages");
             };
 
-            const createDeployStatus = async (ref, target_url) => {
+            const createDeployStatus = async (owner, repo, sha, target_url) => {
               await github.rest.repos.createCommitStatus({
-                owner: "onnenon",
-                repo: "vcp",
-                sha: ref,
+                owner,
+                repo,
+                sha,
+                target_url,
                 state: "success",
                 context: "cloudflare preview deploy",
-                target_url: target_url,
                 description: "Cloudflare preview deploy successful",
               });
             };
@@ -52,7 +50,7 @@ jobs:
                 console.log("No preview URL found in check run output")
                 return;
               }
-              createDeployStatus(ref, previewUrl);
+              createDeployStatus(owner, repo, ref, previewUrl);
               console.log("Created status for Cloudflare preview deploy");
             };
 
