@@ -27,7 +27,7 @@ jobs:
                 data: { check_runs: checks },
               } = await github.rest.checks.listForRef({
                 owner: "${{ github.repository_owner }}",
-                repo: "${{ github.repository }}",
+                repo: "${{ github.event.repository }}",
                 ref: ref,
               });
 
