@@ -1,0 +1,57 @@
+on:
+  check_run:
+    types: [completed]
+
+jobs:
+  create_status_for_check:
+    name: Create Status for Check Run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        id: my-script
+        with:
+          retry-exempt-status-codes: 400,401
+          script: |
+            const getPreviewUrlForCheck = (check) => {
+            const regex = /<strong>Preview URL:<\/strong><\/td><td>\n<a href='(.*?)'>/s;
+            const match = check?.output?.summary?.match(regex);
+              return match?.[1];
+            };
+
+            const getCloudflareCheckForRef = async (ref) => {
+              const {
+                data: { check_runs: checks },
+              } = await octokit.rest.checks.listForRef({
+                owner: "onnenon",
+                repo: "vcp",
+                ref: ref,
+              });
+
+              return checks.find((check) => check.app.slug === "cloudflare-pages");
+            };
+
+            const createDeployStatus = async (ref, target_url) => {
+              await octokit.repos.createCommitStatus({
+                owner: "onnenon",
+                repo: "vcp",
+                sha: ref,
+                state: "success",
+                context: "cloudflare preview deploy",
+                target_url: target_url,
+                description: "Cloudflare preview deploy successful",
+              });
+            };
+
+            const main = async () => {
+              const ref = "41142e973a758108736a2ebadaa614169701b53d";
+              const check = await getCloudflareCheckForRef(ref);
+              const previewUrl = getPreviewUrlForCheck(check);
+
+              if (!previewUrl) {
+                return;
+              }
+              createDeployStatus(ref, previewUrl);
+              console.log(previewUrl);
+            };
+
+            await main();
