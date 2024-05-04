@@ -1,3 +1,4 @@
+name: Convert Cloudflare Check Run to Status
 on:
   check_run:
     types: [completed]
@@ -46,7 +47,7 @@ jobs:
             };
 
             const main = async () => {
-              const ref = "41142e973a758108736a2ebadaa614169701b53d";
+              const ref = "${{ github.event.check_run.check_suite.head_sha }}";
               const check = await getCloudflareCheckForRef(ref);
               const previewUrl = getPreviewUrlForCheck(check);
 
