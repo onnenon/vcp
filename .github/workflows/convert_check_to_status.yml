@@ -6,6 +6,9 @@ jobs:
   create_status_for_check:
     name: Create Status for Check Run
     runs-on: ubuntu-latest
+    permissions:
+      checks: read
+      statuses: write
     steps:
       - uses: actions/github-script@v7
         id: my-script
@@ -21,7 +24,7 @@ jobs:
             const getCloudflareCheckForRef = async (ref) => {
               const {
                 data: { check_runs: checks },
-              } = await octokit.rest.checks.listForRef({
+              } = await github.rest.checks.listForRef({
                 owner: "onnenon",
                 repo: "vcp",
                 ref: ref,
@@ -31,7 +34,7 @@ jobs:
             };
 
             const createDeployStatus = async (ref, target_url) => {
-              await octokit.repos.createCommitStatus({
+              await github.repos.createCommitStatus({
                 owner: "onnenon",
                 repo: "vcp",
                 sha: ref,
