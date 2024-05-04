@@ -15,9 +15,9 @@ jobs:
         with:
           script: |
             const getPreviewUrlForCheck = (check) => {
-            const regex = /<strong>Preview URL:<\/strong><\/td><td>\n<a href='(.*?)'>/s;
-            const match = check?.output?.summary?.match(regex);
-              return match?.[1];
+              const regex = /<strong>Preview URL:<\/strong><\/td><td>\n<a href='(.*?)'>/s;
+              const match = check?.output?.summary?.match(regex);
+                return match?.[1];
             };
 
             const getCloudflareCheckForRef = async (owner, repo, ref) => {
