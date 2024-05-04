@@ -49,10 +49,11 @@ jobs:
               const previewUrl = getPreviewUrlForCheck(check);
 
               if (!previewUrl) {
+                console.log("No preview URL found in check run output")
                 return;
               }
               createDeployStatus(ref, previewUrl);
-              console.log(previewUrl);
+              console.log("Created status for Cloudflare preview deploy");
             };
 
             await main();
