@@ -50,7 +50,7 @@ jobs:
                 console.log("No preview URL found in check run output")
                 return;
               }
-              createDeployStatus(owner, repo, ref, previewUrl);
+              await createDeployStatus(owner, repo, ref, previewUrl);
               console.log("Created status for Cloudflare preview deploy");
             };
 
